@@ -4,13 +4,16 @@ package com.quellesup.day1;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class SolutionPartOne {
 
   public static void main(String[] args) throws FileNotFoundException {
+    System.out.println(getElfsWith3HighestCaloriesInBackpack(parseAllElfsCalories()));
     System.out.println(getElfWithHighestCaloriesInBackpack(parseAllElfsCalories()));
   }
 
@@ -35,6 +38,16 @@ public class SolutionPartOne {
         .mapToInt(v -> v)
         .max()
         .orElseThrow(NoSuchElementException::new);
+  }
+
+  public static Integer getElfsWith3HighestCaloriesInBackpack(List<Integer> elfCalories) {
+    return elfCalories.stream()
+        .sorted(Collections.reverseOrder())
+        .collect(Collectors.toList())
+        .stream()
+        .limit(3)
+        .mapToInt(v -> v)
+        .sum();
   }
 
   private static Scanner getInputFile() throws FileNotFoundException {
