@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class SolutionPartOne {
+public class Solution {
 
   public static void main(String[] args) throws FileNotFoundException {
     System.out.println(getElfsWith3HighestCaloriesInBackpack(parseAllElfsCalories()));
@@ -51,7 +51,7 @@ public class SolutionPartOne {
   }
 
   private static Scanner getInputFile() throws FileNotFoundException {
-    var file = new FileReader("src/main/resources/input.txt");
+    var file = new FileReader("src/main/resources/input-day1.txt");
     return new Scanner(file);
   }
 }
