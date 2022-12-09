@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
-public class Solution {
+public class Day2 {
 
   public static final int DRAW = 3;
   public static final int WIN = 6;
@@ -12,7 +12,7 @@ public class Solution {
   // X - LOSE - ROCK
   // Y - DRAW - PAPER
   // Z - WIN - SCISSORS
-  private static int calculatePointPart1(String elfMove, String opponentMove) {
+  private static int calculatePoints(String elfMove, String opponentMove) {
     int skirmishResult = 0;
     skirmishResult = addDefaultPointForMove(elfMove, skirmishResult);
     if (isResultDraw(elfMove, opponentMove)) {
@@ -43,8 +43,8 @@ public class Solution {
       lines = sc.nextLine().split(" ");
       opponentMove = lines[0];
       elfMove = lines[1];
-      result += calculatePointPart1(elfMove, opponentMove);
-      result2 += calculatePointPart1(replaceElfMove(elfMove, opponentMove), opponentMove);
+      result += calculatePoints(elfMove, opponentMove);
+      result2 += calculatePoints(replaceElfMove(elfMove, opponentMove), opponentMove);
     }
     return result2;
   }

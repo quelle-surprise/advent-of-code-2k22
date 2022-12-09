@@ -11,7 +11,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class Solution {
+public class Day3 {
 
   public static final String INPUT_PATH = "src/main/resources/input-day3.txt";
 
@@ -32,7 +32,7 @@ public class Solution {
     List<String> listOfComparedItems = new ArrayList<>();
     getListOfItemsFromRucksackPart1().forEach(
         p -> listOfComparedItems.add(compareItemsInCompartments(p)));
-    return listOfComparedItems.stream().mapToInt(Solution::getPriority).sum();
+    return listOfComparedItems.stream().mapToInt(Day3::getPriority).sum();
   }
 
   private static String compareItemsInCompartments(String[] p) {
@@ -96,7 +96,7 @@ public class Solution {
     return firstElement.stream()
         .filter(secondElement::contains)
         .filter(thirdElement::contains)
-        .mapToInt(Solution::charValue)
+        .mapToInt(Day3::charValue)
         .findAny()
         .getAsInt();
   }
